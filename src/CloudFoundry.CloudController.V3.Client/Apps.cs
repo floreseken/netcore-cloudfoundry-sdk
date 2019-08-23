@@ -7,7 +7,6 @@ namespace CloudFoundry.CloudController.V3.Client
     using System.Threading.Tasks;
     using CloudFoundry.CloudController.Common.Http;
     using CloudFoundry.CloudController.Common.PushTools;
-    using CloudFoundry.CloudController.V2.Client;
     using CloudFoundry.CloudController.V2.Client.Data;
     using CloudFoundry.CloudController.V3.Client.Model;
 
@@ -18,7 +17,7 @@ namespace CloudFoundry.CloudController.V3.Client
         /// <summary>
         /// Event that is raised on specific parts of the push process.
         /// </summary>
-        public event EventHandler<PushProgressEventArgs> PushProgress;
+        public event EventHandler<Helpers.PushProgressEventArgs> PushProgress;
 
         /// <summary>
         /// Pushes an application to the cloud.
@@ -112,7 +111,7 @@ namespace CloudFoundry.CloudController.V3.Client
                 usedSteps += 1;
             }
 
-            var buildResponse = await this.Client.BuildsExperimental.CreateBuild(packageId);
+            var buildResponse = await this.Client.Builds.CreateBuild(packageId);
 
             if (this.CheckCancellation())
             {
@@ -126,20 +125,20 @@ namespace CloudFoundry.CloudController.V3.Client
                 bool staged = false;
                 while (!staged)
                 {
-                    var getBuild = await this.Client.BuildsExperimental.GetBuild(buildResponse.Guid.Value);
+                    var getBuild = await this.Client.Builds.GetBuild(buildResponse.guid.Value);
 
-                    Console.WriteLine(getBuild.State);
-                    switch (getBuild.State)
+                    Console.WriteLine(getBuild.state);
+                    switch (getBuild.state)
                     {
                         case "FAILED":
                             {
-                                throw new Exception(string.Format(CultureInfo.InvariantCulture, "Staging failed: {0}", getBuild.Error));
+                                throw new Exception(string.Format(CultureInfo.InvariantCulture, "Staging failed: {0}", getBuild.error));
                             }
 
                         case "STAGED":
                             {
                                 staged = true;
-                                dropLetGuid = getBuild.Droplet.Guid;
+                                dropLetGuid = getBuild.droplet.guid.Value;
                                 break;
                             }
 
@@ -169,10 +168,6 @@ namespace CloudFoundry.CloudController.V3.Client
                     HttpResponseMessage dropResponse = await httpClient.SendAsync();
                     var beun = dropResponse.Content.ReadAsStringAsync().Result;
                 }
-
-
-
-
 
 
                 // Step 6 - Assign droplet
@@ -225,7 +220,7 @@ namespace CloudFoundry.CloudController.V3.Client
             {
                 this.PushProgress(
                     this,
-                    new PushProgressEventArgs()
+                    new Helpers.PushProgressEventArgs()
                     {
                         Message = message,
                         Percent = (int)(((double)currentStep / (double)StepCount) * 100)

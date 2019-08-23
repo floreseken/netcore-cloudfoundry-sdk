@@ -11,13 +11,14 @@ namespace CloudFoundry.CloudController.V3.Client
 
     public class TaskResourceEndPoint : BaseEndpoint
     {
-        public TaskResourceEndPoint(CloudFoundryClient client) : base()
+        public TaskResourceEndPoint(CloudFoundryClient client)
         {
             this.Client = client;
         }
 
         public async Task<DC_CreateTaskResponse> CreateTask(DC_CreateTaskRequest createTaskRequest)
         {
+
             UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
             uriBuilder.Path = $"/v3/apps/{createTaskRequest.AppGuid}/tasks";
             var client = this.GetHttpClient();
