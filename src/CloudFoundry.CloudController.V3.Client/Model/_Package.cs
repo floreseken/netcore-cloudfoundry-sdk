@@ -17,15 +17,15 @@ namespace CloudFoundry.CloudController.V3.Client.Model
 
         public Package(Guid appGuid)
         {
-            this.Type = "bits";
+            this.type = "bits";
 
             this.relationships = new Dictionary<string, dynamic>();
             this.relationships.Add("app", new { data = new { guid = appGuid } });
         }
 
-        public string Type { get; set; }
+        public string type { get; set; }
 
-        public Dictionary<string, dynamic> Data { get; set; }
+        public Dictionary<string, dynamic> data { get; set; }
 
         public Dictionary<string, dynamic> relationships { get; set; }
 

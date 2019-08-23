@@ -88,7 +88,7 @@ namespace CloudFoundry.CloudController.V3.Client
 
                         case "FAILED":
                             {
-                                throw new Exception(string.Format(CultureInfo.InvariantCulture, "Upload failed: {0}", getPackage.Data["error"]));
+                                throw new Exception(string.Format(CultureInfo.InvariantCulture, "Upload failed: {0}", getPackage.data["error"]));
                             }
 
                         case "READY":

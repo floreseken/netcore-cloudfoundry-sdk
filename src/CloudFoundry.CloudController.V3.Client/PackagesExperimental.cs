@@ -46,14 +46,8 @@ namespace CloudFoundry.CloudController.V3.Client
         /// </summary>
         public async Task<Model.Package> CreatePackage(Model.Package value)
         {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = "/v3/packages";
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Post;
-
-            var response = await this.SendAsync(client, 201, new StringContent(JsonConvert.SerializeObject(value), Encoding.UTF8, "application/json"));
-            return Utilities.DeserializeJson<Package>(await response.Content.ReadAsStringAsync());
+            var response = await this.GetNewHttpClient().PostAsync("/v3/packages", value);
+            return JsonConvert.DeserializeObject<Model.Package>(await response.Content.ReadAsStringAsync());
         }
 
         /// <summary>
@@ -62,15 +56,7 @@ namespace CloudFoundry.CloudController.V3.Client
         /// </summary>
         public async Task DeletePackage(Guid? guid)
         {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/packages/{0}", guid);
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Delete;
-  
-            
-            var expectedReturnStatus = 204;
-            var response = await this.SendAsync(client, expectedReturnStatus);
+            await this.GetNewHttpClient().DeleteAsync($"/v3/packages/{guid}"); 
         }
 
         /// <summary>
@@ -79,15 +65,8 @@ namespace CloudFoundry.CloudController.V3.Client
         /// </summary>
         public async Task<Package> GetPackage(Guid? guid)
         {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/packages/{0}", guid);
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Get;
-
-            var expectedReturnStatus = 200;
-            var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<Package>(await response.Content.ReadAsStringAsync());
+            var response = await this.GetNewHttpClient().GetAsync($"/v3/packages/{guid}");
+            return JsonConvert.DeserializeObject<Model.Package>(await response.Content.ReadAsStringAsync());
         }
 
         /// <summary>
