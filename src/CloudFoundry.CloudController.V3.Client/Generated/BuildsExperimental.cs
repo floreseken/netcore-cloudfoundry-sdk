@@ -3,32 +3,19 @@ using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 
-namespace CloudFoundry.CloudController.V3.Client
-{
-    /// <summary>
-    /// BuildsExperimental Endpoint
-    /// </summary>
-    public partial class BuildsExperimentalEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractBuildsExperimentalEndpoint
-    {
-        internal BuildsExperimentalEndpoint(CloudFoundryClient client) : base()
-        {
-            this.Client = client;
-        }
-    }
-}
-
 namespace CloudFoundry.CloudController.V3.Client.Base
 {
     /// <summary>
-    /// Base abstract class for BuildsExperimental Endpoint
+    /// Class for BuildsExperimental Endpoint
     /// </summary>
-    public abstract class AbstractBuildsExperimentalEndpoint : BaseEndpoint
+    public class BuildsExperimentalEndpoint : BaseEndpoint
     {
         /// <summary>
         /// Initializes the class
         /// </summary>
-        protected AbstractBuildsExperimentalEndpoint()
+        internal BuildsExperimentalEndpoint(CloudFoundryClient client) : base()
         {
+            this.Client = client;
         }
 
         /// <summary>

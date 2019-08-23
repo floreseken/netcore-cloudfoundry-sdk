@@ -7,32 +7,19 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudFoundry.CloudController.V3.Client
-{
-    /// <summary>
-    /// PackagesExperimental Endpoint
-    /// </summary>
-    public partial class PackagesExperimentalEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractPackagesExperimentalEndpoint
-    {
-        internal PackagesExperimentalEndpoint(CloudFoundryClient client) : base()
-        {
-            this.Client = client;
-        }
-    }
-}
-
 namespace CloudFoundry.CloudController.V3.Client.Base
 {
     /// <summary>
-    /// Base abstract class for PackagesExperimental Endpoint
+    /// Class for PackagesExperimental Endpoint
     /// </summary>
-    public abstract class AbstractPackagesExperimentalEndpoint : BaseEndpoint
+    public partial class PackagesExperimentalEndpoint : BaseEndpoint
     {
         /// <summary>
         /// Initializes the class
         /// </summary>
-        protected AbstractPackagesExperimentalEndpoint()
+        internal PackagesExperimentalEndpoint(CloudFoundryClient client) : base()
         {
+            this.Client = client;
         }
 
         /// <summary>

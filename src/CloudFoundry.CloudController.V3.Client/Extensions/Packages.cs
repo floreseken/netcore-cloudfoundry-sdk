@@ -1,4 +1,4 @@
-namespace CloudFoundry.CloudController.V3.Client
+namespace CloudFoundry.CloudController.V3.Client.Base
 {
     using System;
     using System.Collections.Generic;

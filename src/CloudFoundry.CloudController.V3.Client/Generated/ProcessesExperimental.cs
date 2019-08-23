@@ -8,32 +8,19 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudFoundry.CloudController.V3.Client
-{
-    /// <summary>
-    /// ProcessesExperimental Endpoint
-    /// </summary>
-    public partial class ProcessesExperimentalEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractProcessesExperimentalEndpoint
-    {
-        internal ProcessesExperimentalEndpoint(CloudFoundryClient client) : base()
-        {
-            this.Client = client;
-        }
-    }
-}
-
 namespace CloudFoundry.CloudController.V3.Client.Base
 {
     /// <summary>
-    /// Base abstract class for ProcessesExperimental Endpoint
+    /// Class for ProcessesExperimental Endpoint
     /// </summary>
-    public abstract class AbstractProcessesExperimentalEndpoint : BaseEndpoint
+    public class ProcessesExperimentalEndpoint : BaseEndpoint
     {
         /// <summary>
         /// Initializes the class
         /// </summary>
-        protected AbstractProcessesExperimentalEndpoint()
+        internal ProcessesExperimentalEndpoint(CloudFoundryClient client) : base()
         {
+            this.Client = client;
         }
 
         /// <summary>

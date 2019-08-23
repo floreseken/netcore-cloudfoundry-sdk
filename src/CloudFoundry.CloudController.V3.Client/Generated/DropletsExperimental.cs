@@ -5,32 +5,19 @@ using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace CloudFoundry.CloudController.V3.Client
-{
-    /// <summary>
-    /// DropletsExperimental Endpoint
-    /// </summary>
-    public partial class DropletsExperimentalEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractDropletsExperimentalEndpoint
-    {
-        internal DropletsExperimentalEndpoint(CloudFoundryClient client) : base()
-        {
-            this.Client = client;
-        }
-    }
-}
-
 namespace CloudFoundry.CloudController.V3.Client.Base
 {
     /// <summary>
-    /// Base abstract class for DropletsExperimental Endpoint
+    /// Class for DropletsExperimental Endpoint
     /// </summary>
-    public abstract class AbstractDropletsExperimentalEndpoint : BaseEndpoint
+    public class DropletsExperimentalEndpoint : BaseEndpoint
     {
         /// <summary>
         /// Initializes the class
         /// </summary>
-        protected AbstractDropletsExperimentalEndpoint()
+        internal DropletsExperimentalEndpoint(CloudFoundryClient client) : base()
         {
+            this.Client = client;
         }
 
         /// <summary>

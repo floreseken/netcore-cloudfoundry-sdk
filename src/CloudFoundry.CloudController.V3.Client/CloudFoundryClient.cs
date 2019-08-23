@@ -223,7 +223,7 @@ namespace CloudFoundry.CloudController.V3.Client
                     content.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
                     //content.Headers.Add("Accept", "application/json");
 
-                    HttpResponseMessage response = await httpClient.PostAsync(url, content);
+                    var response = await httpClient.PostAsync(url, content);
 
                     //return await response.Content.ReadAsStringAsync();
                     var str = await response.Content.ReadAsStringAsync();

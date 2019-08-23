@@ -7,18 +7,14 @@ using System.Text;
 
 namespace CloudFoundry.CloudController.V3.Client
 {
-    public class TaskResourceEndPoint: AbstractTaskResourceEndPoint
+
+    public class TaskResourceEndPoint:BaseEndpoint
     {
         public TaskResourceEndPoint(CloudFoundryClient client):base()
         {
             this.Client = client;
         }
-    }
-    public abstract class AbstractTaskResourceEndPoint:BaseEndpoint
-    {
-        protected AbstractTaskResourceEndPoint()
-        {
-        }
+
         public async Task<DC_CreateTaskResponse> CreateTask(DC_CreateTaskRequest createTaskRequest)
         {
             UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
