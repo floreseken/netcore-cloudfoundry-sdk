@@ -7,6 +7,7 @@ namespace CloudFoundry.CloudController.V3.Client
     using System.Threading.Tasks;
     using CloudFoundry.CloudController.Common.Http;
     using CloudFoundry.CloudController.Common.PushTools;
+    using CloudFoundry.CloudController.V2.Client;
     using CloudFoundry.CloudController.V2.Client.Data;
     using CloudFoundry.CloudController.V3.Client.Model;
 

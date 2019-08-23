@@ -1,4 +1,5 @@
 using CloudFoundry.CloudController.V3.Client.Model;
+using CloudFoundry.CloudController.V3.Client.Helpers;
 using Newtonsoft.Json;
 using System;
 using System.Globalization;

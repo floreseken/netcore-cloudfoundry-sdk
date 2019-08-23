@@ -1,4 +1,4 @@
-using CloudFoundry.CloudController.V3.Client.Data;
+using CloudFoundry.CloudController.V3.Client.Helpers;
 using CloudFoundry.CloudController.V3.Client.Model;
 using System;
 using System.Globalization;
