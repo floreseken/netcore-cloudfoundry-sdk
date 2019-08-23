@@ -1,40 +1,23 @@
-using CloudFoundry.CloudController.Common;
 using CloudFoundry.CloudController.V3.Client.Data;
 using Newtonsoft.Json;
 using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CloudFoundry.CloudController.V3.Client
 {
     /// <summary>
-    /// AppsExperimental Endpoint
+    /// Class for AppsExperimental Endpoint
     /// </summary>
-    public partial class AppsExperimentalEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractAppsExperimentalEndpoint
-    {
-        internal AppsExperimentalEndpoint(CloudFoundryClient client) : base()
-        {
-            this.Client = client;
-        }
-    }
-}
-
-namespace CloudFoundry.CloudController.V3.Client.Base
-{
-    /// <summary>
-    /// Base abstract class for AppsExperimental Endpoint
-    /// </summary>
-    public abstract class AbstractAppsExperimentalEndpoint : BaseEndpoint
+    public partial class AppsExperimentalEndpoint : BaseEndpoint
     {
         /// <summary>
         /// Initializes the class
         /// </summary>
-        protected AbstractAppsExperimentalEndpoint()
+        internal AppsExperimentalEndpoint(CloudFoundryClient client) : base()
         {
+            this.Client = client;
         }
 
         /// <summary>

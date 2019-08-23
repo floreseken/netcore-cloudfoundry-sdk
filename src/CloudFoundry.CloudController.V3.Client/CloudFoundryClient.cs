@@ -9,7 +9,6 @@ namespace CloudFoundry.CloudController.V3.Client
     using System.Threading.Tasks;
     using CloudFoundry.CloudController.Common;
     using CloudFoundry.CloudController.Common.Http;
-    using CloudFoundry.CloudController.V3.Client.Base;
     using Newtonsoft.Json;
 
     /// <summary>

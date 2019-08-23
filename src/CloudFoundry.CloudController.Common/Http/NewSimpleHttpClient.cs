@@ -1,17 +1,11 @@
 ﻿namespace CloudFoundry.CloudController.Common.Http
 {
     using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.IO;
-    using System.Linq;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Text;
-    using System.Threading;
     using System.Threading.Tasks;
     using CloudFoundry.CloudController.Common.Exceptions;
-    using CloudFoundry.CloudController.Common.Http;
     using Newtonsoft.Json;
 
     /// <inheritdoc/>
@@ -112,7 +106,7 @@
             {
                 string response = await result.Content.ReadAsStringAsync();
                 var ex = JsonConvert.DeserializeObject<NewCloudFoundryExceptionObject>(response);
-                //TODO: somethign with multiple errors?
+                //TODO: something with multiple errors?
                 var cloudFoundryException = new CloudFoundryException($"{ex.errors[0].Code}: {ex.errors[0].Title}: {ex.errors[0].Detail} ");
                 cloudFoundryException.Response = result;
                 throw cloudFoundryException;

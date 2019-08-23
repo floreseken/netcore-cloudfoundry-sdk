@@ -1,11 +1,10 @@
 using CloudFoundry.CloudController.V3.Client.Data;
 using System;
-using System.CodeDom.Compiler;
 using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace CloudFoundry.CloudController.V3.Client.Base
+namespace CloudFoundry.CloudController.V3.Client
 {
     /// <summary>
     /// Class for DropletsExperimental Endpoint

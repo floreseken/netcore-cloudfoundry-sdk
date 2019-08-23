@@ -2,13 +2,12 @@ using CloudFoundry.CloudController.Common;
 using CloudFoundry.CloudController.V3.Client.Data;
 using Newtonsoft.Json;
 using System;
-using System.CodeDom.Compiler;
 using System.Globalization;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudFoundry.CloudController.V3.Client.Base
+namespace CloudFoundry.CloudController.V3.Client
 {
     /// <summary>
     /// Class for ProcessesExperimental Endpoint

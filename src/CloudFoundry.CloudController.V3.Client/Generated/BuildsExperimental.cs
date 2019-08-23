@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 
-namespace CloudFoundry.CloudController.V3.Client.Base
+namespace CloudFoundry.CloudController.V3.Client
 {
     /// <summary>
     /// Class for BuildsExperimental Endpoint
