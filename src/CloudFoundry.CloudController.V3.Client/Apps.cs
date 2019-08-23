@@ -1,19 +1,14 @@
 namespace CloudFoundry.CloudController.V3.Client
 {
     using System;
-    using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
-    using System.Linq;
     using System.Net.Http;
-    using System.Text;
     using System.Threading.Tasks;
-    using CloudFoundry.CloudController.Common.Exceptions;
     using CloudFoundry.CloudController.Common.Http;
     using CloudFoundry.CloudController.Common.PushTools;
     using CloudFoundry.CloudController.V2.Client.Data;
     using CloudFoundry.CloudController.V3.Client.Data;
-    using Newtonsoft.Json;
 
     public partial class AppsExperimentalEndpoint
     {
