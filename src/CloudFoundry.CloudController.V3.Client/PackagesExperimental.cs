@@ -26,7 +26,7 @@ namespace CloudFoundry.CloudController.V3.Client
         /// Copy a Package
         /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/238/packages__experimental_/copy_a_package.html"</para>
         /// </summary>
-        public async Task<CopyPackageResponse> CopyPackage(Guid? guid)
+        public async Task<Model.Package> CopyPackage(Guid? guid)
         {
             UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
             uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}/packages", guid);
@@ -37,14 +37,14 @@ namespace CloudFoundry.CloudController.V3.Client
             
             var expectedReturnStatus = 201;
             var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<CopyPackageResponse>(await response.Content.ReadAsStringAsync());
+            return Utilities.DeserializeJson<Package>(await response.Content.ReadAsStringAsync());
         }
 
         /// <summary>
         /// Create a Package
         /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/238/packages__experimental_/create_a_package.html"</para>
         /// </summary>
-        public async Task<CreatePackageResponse> CreatePackage(CreatePackageRequest value)
+        public async Task<Model.Package> CreatePackage(Model.Package value)
         {
             UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
             uriBuilder.Path = "/v3/packages";
@@ -53,7 +53,7 @@ namespace CloudFoundry.CloudController.V3.Client
             client.Method = HttpMethod.Post;
 
             var response = await this.SendAsync(client, 201, new StringContent(JsonConvert.SerializeObject(value), Encoding.UTF8, "application/json"));
-            return Utilities.DeserializeJson<CreatePackageResponse>(await response.Content.ReadAsStringAsync());
+            return Utilities.DeserializeJson<Package>(await response.Content.ReadAsStringAsync());
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace CloudFoundry.CloudController.V3.Client
         /// Get a Package
         /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/238/packages__experimental_/get_a_package.html"</para>
         /// </summary>
-        public async Task<GetPackageResponse> GetPackage(Guid? guid)
+        public async Task<Package> GetPackage(Guid? guid)
         {
             UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
             uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/packages/{0}", guid);
@@ -87,7 +87,7 @@ namespace CloudFoundry.CloudController.V3.Client
 
             var expectedReturnStatus = 200;
             var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<GetPackageResponse>(await response.Content.ReadAsStringAsync());
+            return Utilities.DeserializeJson<Package>(await response.Content.ReadAsStringAsync());
         }
 
         /// <summary>

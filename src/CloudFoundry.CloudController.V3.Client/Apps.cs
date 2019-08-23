@@ -49,10 +49,10 @@ namespace CloudFoundry.CloudController.V3.Client
             usedSteps += 1;
 
             // Step 2 - Create package
-            var createPackage = new CreatePackageRequest(appGuid);
-            CreatePackageResponse packageResponse = await this.Client.PackagesExperimental.CreatePackage(createPackage);
+            var createPackage = new Model.Package(appGuid);
+            var packageResponse = await this.Client.PackagesExperimental.CreatePackage(createPackage);
 
-            Guid packageId = new Guid(packageResponse.Guid.ToString());
+            Guid packageId = new Guid(packageResponse.guid.ToString());
 
             if (this.CheckCancellation())
             {
@@ -80,10 +80,10 @@ namespace CloudFoundry.CloudController.V3.Client
                 bool uploadProcessed = false;
                 while (!uploadProcessed)
                 {
-                    GetPackageResponse getPackage = await this.Client.PackagesExperimental.GetPackage(packageId);
-                    Console.WriteLine(getPackage.State);
+                    var getPackage = await this.Client.PackagesExperimental.GetPackage(packageId);
+                    Console.WriteLine(getPackage.state);
 
-                    switch (getPackage.State)
+                    switch (getPackage.state)
                     {
 
                         case "FAILED":
