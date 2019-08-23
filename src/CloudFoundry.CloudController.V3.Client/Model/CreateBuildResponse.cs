@@ -1,31 +1,15 @@
-
-
-
 using Newtonsoft.Json;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 
-namespace CloudFoundry.CloudController.V3.Client.Data
-{
-    /// <summary>
-    /// Data class used for deserializing the "CloudFoundry.CloudController.V3.Client.BuildsExperimentalEndpoint.CreateBuild()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/238/Builds__experimental_/create_a_Build.html"</para>
-    /// </summary>
-    [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public partial class CreateBuildResponse : CloudFoundry.CloudController.V3.Client.Data.Base.AbstractCreateBuildResponse
-    {
-    }
-}
-
-namespace CloudFoundry.CloudController.V3.Client.Data.Base
+namespace CloudFoundry.CloudController.V3.Client.Model
 {
     /// <summary>
     /// Base abstract data class used for deserializing the "CloudFoundry.CloudController.V3.Client.BuildsExperimentalEndpoint.CreateBuild()" Response
     /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/238/Builds__experimental_/create_a_Build.html"</para>
     /// </summary>
-    [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public abstract class AbstractCreateBuildResponse
+    public class CreateBuildResponse
     {
 
 // {

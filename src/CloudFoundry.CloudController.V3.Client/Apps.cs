@@ -8,7 +8,7 @@ namespace CloudFoundry.CloudController.V3.Client
     using CloudFoundry.CloudController.Common.Http;
     using CloudFoundry.CloudController.Common.PushTools;
     using CloudFoundry.CloudController.V2.Client.Data;
-    using CloudFoundry.CloudController.V3.Client.Data;
+    using CloudFoundry.CloudController.V3.Client.Model;
 
     public partial class AppsExperimentalEndpoint
     {
@@ -44,12 +44,12 @@ namespace CloudFoundry.CloudController.V3.Client
 
             // Step 1 - Check if application exists
             this.TriggerPushProgressEvent(usedSteps, "Checking if application exists");
-            GetAppResponse app = await this.Client.AppsExperimental.GetApp(appGuid);
+            var app = await this.Client.AppsExperimental.GetApp(appGuid);
 
             usedSteps += 1;
 
             // Step 2 - Create package
-            CreatePackageRequest createPackage = new CreatePackageRequest(appGuid);
+            var createPackage = new CreatePackageRequest(appGuid);
             CreatePackageResponse packageResponse = await this.Client.PackagesExperimental.CreatePackage(createPackage);
 
             Guid packageId = new Guid(packageResponse.Guid.ToString());

@@ -1,31 +1,16 @@
-
-
-
 using Newtonsoft.Json;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 
-namespace CloudFoundry.CloudController.V3.Client.Data
-{
-    /// <summary>
-    /// Data class used for deserializing the "CloudFoundry.CloudController.V3.Client.PackagesExperimentalEndpoint.CopyPackage()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/238/packages__experimental_/copy_a_package.html"</para>
-    /// </summary>
-    [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public partial class CopyPackageResponse : CloudFoundry.CloudController.V3.Client.Data.Base.AbstractCopyPackageResponse
-    {
-    }
-}
-
-namespace CloudFoundry.CloudController.V3.Client.Data.Base
+namespace CloudFoundry.CloudController.V3.Client.Model
 {
     /// <summary>
     /// Base abstract data class used for deserializing the "CloudFoundry.CloudController.V3.Client.PackagesExperimentalEndpoint.CopyPackage()" Response
     /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/238/packages__experimental_/copy_a_package.html"</para>
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public abstract class AbstractCopyPackageResponse
+    public class CopyPackageResponse
     {
 
         /// <summary> 

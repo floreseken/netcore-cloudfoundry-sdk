@@ -1,36 +1,18 @@
-
-
-
 using Newtonsoft.Json;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 
-namespace CloudFoundry.CloudController.V3.Client.Data
-{
-    /// <summary>
-    /// Data class used for serializing the "CloudFoundry.CloudController.V3.Client.AppsExperimentalEndpoint.CreateApp()" Request
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/238/apps__experimental_/create_an_app.html"</para>
-    /// </summary>
-    [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public partial class CreateAppRequest : CloudFoundry.CloudController.V3.Client.Data.Base.AbstractCreateAppRequest
-    {
-        public CreateAppRequest(string name, Guid spaceGuid) : base(name, spaceGuid)
-        {
-        }
-    }
-}
 
-namespace CloudFoundry.CloudController.V3.Client.Data.Base
+namespace CloudFoundry.CloudController.V3.Client.Model
 {
     /// <summary>
     /// Base abstract data class used for serializing the "CloudFoundry.CloudController.V3.Client.AppsExperimentalEndpoint.CreateApp()" Request
     /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/238/apps__experimental_/create_an_app.html"</para>
     /// </summary>
-    [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public abstract class AbstractCreateAppRequest
+    public class CreateAppRequest
     {
-        public AbstractCreateAppRequest(string name, Guid spaceGuid)
+        public CreateAppRequest(string name, Guid spaceGuid)
         {
             this.Name = name;
 

@@ -1,5 +1,6 @@
 ﻿using CloudFoundry.CloudController.V3.Client;
 using CloudFoundry.CloudController.V3.Client.Data;
+using CloudFoundry.CloudController.V3.Client.Model;
 using System;
 using System.Threading;
 

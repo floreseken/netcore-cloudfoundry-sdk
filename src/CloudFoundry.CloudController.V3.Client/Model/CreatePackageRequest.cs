@@ -1,38 +1,20 @@
-
-
-
 using Newtonsoft.Json;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 
-namespace CloudFoundry.CloudController.V3.Client.Data
-{
-    /// <summary>
-    /// Data class used for serializing the "CloudFoundry.CloudController.V3.Client.PackagesExperimentalEndpoint.CreatePackage()" Request
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/238/packages__experimental_/create_a_package.html"</para>
-    /// </summary>
-    [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public partial class CreatePackageRequest : CloudFoundry.CloudController.V3.Client.Data.Base.AbstractCreatePackageRequest
-    {
-        public CreatePackageRequest(Guid appGuid) : base(appGuid)
-        {
-        }
-    }
-}
 
-namespace CloudFoundry.CloudController.V3.Client.Data.Base
+namespace CloudFoundry.CloudController.V3.Client.Model
 {
     /// <summary>
     /// Base abstract data class used for serializing the "CloudFoundry.CloudController.V3.Client.PackagesExperimentalEndpoint.CreatePackage()" Request
     /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/238/packages__experimental_/create_a_package.html"</para>
     /// </summary>
-    [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public abstract class AbstractCreatePackageRequest
+    public class CreatePackageRequest
     {
 
 
-        public AbstractCreatePackageRequest(Guid appGuid)
+        public CreatePackageRequest(Guid appGuid)
         {
             this.Type = "bits";
 

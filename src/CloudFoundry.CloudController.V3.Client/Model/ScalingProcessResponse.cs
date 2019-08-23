@@ -1,31 +1,15 @@
-
-
-
 using Newtonsoft.Json;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 
-namespace CloudFoundry.CloudController.V3.Client.Data
-{
-    /// <summary>
-    /// Data class used for deserializing the "CloudFoundry.CloudController.V3.Client.ProcessesExperimentalEndpoint.ScalingProcess()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/238/processes__experimental_/scaling_a_process.html"</para>
-    /// </summary>
-    [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public partial class ScalingProcessResponse : CloudFoundry.CloudController.V3.Client.Data.Base.AbstractScalingProcessResponse
-    {
-    }
-}
-
-namespace CloudFoundry.CloudController.V3.Client.Data.Base
+namespace CloudFoundry.CloudController.V3.Client.Model
 {
     /// <summary>
     /// Base abstract data class used for deserializing the "CloudFoundry.CloudController.V3.Client.ProcessesExperimentalEndpoint.ScalingProcess()" Response
     /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/238/processes__experimental_/scaling_a_process.html"</para>
     /// </summary>
-    [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public abstract class AbstractScalingProcessResponse
+    public class ScalingProcessResponse
     {
 
         /// <summary> 
