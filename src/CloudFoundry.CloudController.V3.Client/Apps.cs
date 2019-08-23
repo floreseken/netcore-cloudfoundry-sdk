@@ -196,7 +196,7 @@ namespace CloudFoundry.CloudController.V3.Client
 
 
                 // Step 7 - Start Application                
-                StartingAppResponse response = await this.Client.AppsExperimental.StartingApp(appGuid);
+                var response = await this.Client.AppsExperimental.StartingApp(appGuid);
                 if (this.CheckCancellation())
                 {
                     return;
@@ -206,7 +206,7 @@ namespace CloudFoundry.CloudController.V3.Client
             }
 
             // Step 8 - Done
-            this.TriggerPushProgressEvent(usedSteps, "Application {0} pushed successfully", app.Name);
+            this.TriggerPushProgressEvent(usedSteps, "Application {0} pushed successfully", app.name);
         }
 
         /// <summary>

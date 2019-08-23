@@ -41,12 +41,12 @@ namespace CloudFoundry.CloudController.V3.Client
         /// <para>See the example below for more information.</para>
         /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/238/apps__experimental_/create_an_app.html"</para>
         /// </summary>
-        public async Task<CreateAppResponse> CreateApp(string appName, Guid spaceGuid)
+        public async Task<Model.App> CreateApp(string appName, Guid spaceGuid)
         {
-            var request = new CreateAppRequest(appName, spaceGuid);
+            var request = new Model.App(appName, spaceGuid);
             var response = await this.GetNewHttpClient().PostAsync("/v3/apps", request);
 
-            return JsonConvert.DeserializeObject<CreateAppResponse>(await response.Content.ReadAsStringAsync());
+            return JsonConvert.DeserializeObject<Model.App>(await response.Content.ReadAsStringAsync());
         }
 
         /// <summary>
@@ -99,10 +99,10 @@ namespace CloudFoundry.CloudController.V3.Client
         /// Get an App
         /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/238/apps__experimental_/get_an_app.html"</para>
         /// </summary>
-        public async Task<GetAppResponse> GetApp(Guid? guid)
+        public async Task<Model.App> GetApp(Guid? guid)
         {
             var response = await this.GetNewHttpClient().GetAsync($"/v3/apps/{guid}");
-            return JsonConvert.DeserializeObject<GetAppResponse>(await response.Content.ReadAsStringAsync());
+            return JsonConvert.DeserializeObject<Model.App>(await response.Content.ReadAsStringAsync());
         }
 
         /// <summary>
@@ -229,20 +229,20 @@ namespace CloudFoundry.CloudController.V3.Client
         /// Starting an App
         /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/238/apps__experimental_/starting_an_app.html"</para>
         /// </summary>
-        public async Task<StartingAppResponse> StartingApp(Guid guid)
+        public async Task<Model.App> StartingApp(Guid guid)
         {
             var response = await this.GetNewHttpClient().PostAsync($"/v3/apps/{guid}/actions/start");
-            return JsonConvert.DeserializeObject<StartingAppResponse>(await response.Content.ReadAsStringAsync());
+            return JsonConvert.DeserializeObject<Model.App>(await response.Content.ReadAsStringAsync());
         }
 
         /// <summary>
         /// Stopping an App
         /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/238/apps__experimental_/stopping_an_app.html"</para>
         /// </summary>
-        public async Task<StoppingAppResponse> StoppingApp(Guid? guid)
+        public async Task<Model.App> StoppingApp(Guid? guid)
         {
             var response = await this.GetNewHttpClient().GetAsync($"/v3/apps/{guid}/stop");
-            return JsonConvert.DeserializeObject<StoppingAppResponse>(await response.Content.ReadAsStringAsync());
+            return JsonConvert.DeserializeObject<Model.App>(await response.Content.ReadAsStringAsync());
         }
 
         /// <summary>

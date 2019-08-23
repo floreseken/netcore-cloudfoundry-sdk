@@ -20,18 +20,18 @@ namespace ConsoleApp1
 
                 var createResponse = cloudFoundryClient.AppsExperimental.CreateApp("api-created-app", new Guid("ef1c944d-c7ec-4ceb-8177-317130a005da") ).Result;
 
-                var appResponse = cloudFoundryClient.AppsExperimental.GetApp(createResponse.Guid).Result;
+                var appResponse = cloudFoundryClient.AppsExperimental.GetApp(createResponse.guid).Result;
 
 
                 cloudFoundryClient.AppsExperimental.PushProgress += AppsExperimental_PushProgress;
 
-                cloudFoundryClient.AppsExperimental.Push(createResponse.Guid.Value, @"C:\test\tozip\", null, null, true, 0, 0).Wait();
+                cloudFoundryClient.AppsExperimental.Push(createResponse.guid.Value, @"C:\test\tozip\", null, null, true, 0, 0).Wait();
 
                 //cloudFoundryClient.AppsExperimental.DeleteApp(appResponse.Guid.Value).Wait();
 
-                GetAppResponse rep = cloudFoundryClient.AppsExperimental.GetApp(appResponse.Guid.Value).Result;
+                var rep = cloudFoundryClient.AppsExperimental.GetApp(appResponse.guid.Value).Result;
 
-                var fpa = cloudFoundryClient.AppsExperimental.ListAssociatedProcesses(appResponse.Guid).Result;
+                var fpa = cloudFoundryClient.AppsExperimental.ListAssociatedProcesses(appResponse.guid).Result;
 
             }
 
